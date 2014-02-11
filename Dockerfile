@@ -8,7 +8,7 @@ FROM ubuntu
 
 MAINTAINER Michael Doran michael.doran.808@gmail.com
 
-RUN mv /etc/apt/sources.list /etc/apt/sources.back 
+RUN mv /etc/apt/sources.list /etc/apt/sources.bak 
 RUN touch /etc/apt/sources.new 
 RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main" >> /etc/apt/sources.new 
 RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main" >> /etc/apt/sources.new
