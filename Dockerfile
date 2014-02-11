@@ -7,6 +7,7 @@ FROM ubuntu
 #Maintainer 
 
 MAINTAINER Michael Doran michael.doran.808@gmail.com
+RUN apt-get -y install python-software-properties
 RUN sed -i 's/archive.ubuntu.com/91.189.91.15/' /etc/apt/sources.list
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 RUN apt-get update
