@@ -10,10 +10,10 @@ MAINTAINER Michael Doran michael.doran.808@gmail.com
 
 RUN mv /etc/apt/sources.list /etc/apt/sources.back 
 RUN touch /etc/apt/sources.new 
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main" >> /etc/apt/sources.list 
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main" >> /etc/apt/sources.list
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main" >> /etc/apt/sources.list
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main" >> /etc/apt/sources.list
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main" >> /etc/apt/sources.new 
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main" >> /etc/apt/sources.new
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main" >> /etc/apt/sources.new
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main" >> /etc/apt/sources.new
 RUN cat /etc/apt/sources.new /etc/apt/sources.bak > /etc/apt/sources.list
 
 RUN sed -i 's/precise/saucy/' /etc/apt/sources.list
