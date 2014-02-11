@@ -14,7 +14,7 @@ RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main" > /etc/apt/s
 RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main" >> /etc/apt/sources.new 
 RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports" >> /etc/apt/sources.new 
 RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security" >> /etc/apt/sources.new 
-RUN cat /etc/apt/sources.new /etc/apt/sources.bak > /etc/apt/sources.list
+RUN cat /etc/apt/sources.new /etc/apt/sources.back > /etc/apt/sources.list
 
 RUN apt-get -y install python-software-properties
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
