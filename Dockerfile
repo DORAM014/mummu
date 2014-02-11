@@ -17,7 +17,7 @@ RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main" >> 
 RUN cat /etc/apt/sources.new /etc/apt/sources.bak > /etc/apt/sources.list
 
 RUN sed -i 's/precise/saucy/' /etc/apt/sources.list
-RUN sed -i 's/archive.ubuntu.com/ragana.canonical.com/'
+RUN sed -i 's/archive.ubuntu.com/ragana.canonical.com/' /etc/apt/sources.list
 RUN apt-get -y update
 RUN apt-get -y dist-upgrade
 RUN apt-get -y install wget
