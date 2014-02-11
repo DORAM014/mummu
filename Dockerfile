@@ -2,7 +2,7 @@
 #
 #
 #Version 0.01
-FROM ubuntu:latest
+FROM ubuntu
 
 #Maintainer 
 
@@ -10,20 +10,11 @@ MAINTAINER Michael Doran michael.doran.808@gmail.com
 
 RUN mv /etc/apt/sources.list /etc/apt/sources.back 
 RUN touch /etc/apt/sources.new 
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main" > /etc/apt/sources.new 
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main" >> /etc/apt/sources.new 
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main" >> /etc/apt/sources.new 
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main" >> /etc/apt/sources.new 
-RUN cat /etc/apt/sources.new /etc/apt/sources.back > /etc/apt/sources.list
-
-RUN apt-get -y install python-software-properties
-RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
-RUN apt-get update
-RUN apt-get -y install make autoconf automake libtool
-RUN apt-get -y install gcc-4.8 g++-4.8 
-RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
-RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
-
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main" >> /etc/apt/sources.list 
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main" >> /etc/apt/sources.list
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main" >> /etc/apt/sources.list
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main" >> /etc/apt/sources.list
+RUN cat /etc/apt/sources.new /etc/apt/sources.bak > /etc/apt/sources.list
 
 RUN sed -i 's/precise/saucy/' /etc/apt/sources.list
 RUN apt-get -y update
@@ -39,6 +30,16 @@ RUN apt-get -y install libjemalloc-dev
 RUN apt-get -y install libboost-all-dev
 
 RUN apt-get -y install git
+
+
+RUN apt-get -y install python-software-properties
+RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
+RUN apt-get update
+RUN apt-get -y install make autoconf automake libtool
+RUN apt-get -y install gcc-4.8 g++-4.8 
+RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
+RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
+
 
 RUN cd /opt && git clone https://github.com/keithw/remy.git
 
