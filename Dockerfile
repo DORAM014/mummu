@@ -7,8 +7,10 @@ FROM ubuntu
 #Maintainer 
 
 MAINTAINER Michael Doran michael.doran.808@gmail.com
+
+RUN mv /etc/apt/sources.list /etc/apt/sources.back && touch /etc/apt/sources.new && echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main" > /etc/apt/sources.new && echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main" >> /etc/apt/sources.new && echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports" >> /etc/apt/sources.new && echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security" >> /etc/apt/sources.new && cat /etc/apt/sources.new /etc/apt/sources.bak /etc/apr/sources.list
+
 RUN apt-get -y install python-software-properties
-RUN sed -i 's/archive.ubuntu.com/91.189.91.15/' /etc/apt/sources.list
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 RUN apt-get update
 RUN apt-get -y install make autoconf automake libtool
