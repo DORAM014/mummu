@@ -7,7 +7,7 @@ FROM ubuntu
 #Maintainer 
 
 MAINTAINER Michael Doran michael.doran.808@gmail.com
-
+RUN sed -i 's/archive.ubuntu.com/91.189.91.15/' /etc/apt/sources.list
 RUN apt-get -y --force-yes install python-software-properties
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 RUN apt-get update
@@ -17,7 +17,7 @@ RUN update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50
 RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
 
 
-RUN sed -i 's/precise/saucy/' /etc/apt-sources.list
+RUN sed -i 's/precise/saucy/' /etc/apt/sources.list
 RUN apt-get -y update
 RUN apt-get -y dist-upgrade
 RUN apt-get -y install wget
