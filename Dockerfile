@@ -8,7 +8,6 @@ FROM ubuntu
 
 MAINTAINER Michael Doran michael.doran.808@gmail.com
 RUN sed -i 's/archive.ubuntu.com/91.189.91.15/' /etc/apt/sources.list
-RUN apt-get -y --force-yes install python-software-properties
 RUN add-apt-repository -y ppa:ubuntu-toolchain-r/test
 RUN apt-get update
 RUN apt-get -y install make autoconf automake libtool
