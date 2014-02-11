@@ -2,7 +2,7 @@
 #
 #
 #Version 0.01
-FROM ubuntu
+FROM ubuntu:latest
 
 #Maintainer 
 
