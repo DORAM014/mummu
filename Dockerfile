@@ -12,8 +12,8 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.back
 RUN touch /etc/apt/sources.new 
 RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise main" > /etc/apt/sources.new 
 RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-updates main" >> /etc/apt/sources.new 
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports" >> /etc/apt/sources.new 
-RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security" >> /etc/apt/sources.new 
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-backports main" >> /etc/apt/sources.new 
+RUN echo "deb mirror://mirrors.ubuntu.com/mirrors.txt precise-security main" >> /etc/apt/sources.new 
 RUN cat /etc/apt/sources.new /etc/apt/sources.back > /etc/apt/sources.list
 
 RUN apt-get -y install python-software-properties
