@@ -1,11 +1,10 @@
-FROM scratch
-VERSION saucy
-VERSION 13.10
+FROM        stackbrew/ubuntu:saucy
+
 MAINTAINER Michael Doran michael.doran.808@gmail.com
 
-ADD saucy.tar.bz2 /
-
-
+ENV         DEBIAN_FRONTEND noninteractive
+RUN         echo "deb http://archive.ubuntu.com/ubuntu saucy main universe" > /etc/apt/sources.list
+RUN apt-get update
 RUN apt-get -y install wget
 RUN mkdir /opt
 RUN cd /opt && wget https://protobuf.googlecode.com/files/protobuf-2.5.0.tar.gz
