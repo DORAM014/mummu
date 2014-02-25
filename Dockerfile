@@ -30,3 +30,4 @@ RUN cd /opt && git clone https://github.com/keithw/remy.git
 
 RUN cd /opt/remy && ./autogen.sh && ./configure && make && cp /opt/remy/src/rat-runner /tmp && make install 
 
+RUN cd /opt && git clone https://github.com/DORAM014/seed.git
