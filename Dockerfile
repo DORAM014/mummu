@@ -15,7 +15,7 @@ RUN update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50
 
 
 
-RUN cd /opt && wget http://protobuf.googlecode.com/files/protobuf-2.5.0.tar.gz && tar -xvf protobuf-2.5.0.tar.gz && sleep 10 && cd /opt/protobuf-2.5.0 && ./autogen.sh && ./configure && make && make install
+RUN cd /opt && wget http://protobuf.googlecode.com/files/protobuf-2.5.0.tar.gz && tar -xvf protobuf-2.5.0.tar.gz && sleep 10 && cd /opt/protobuf-2.5.0 && ./configure && make && make install
 
 RUN apt-get -y install libjemalloc-dev
 
